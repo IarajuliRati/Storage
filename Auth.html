@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="eu">
+<head>
+  <meta charset="UTF-8" />
+  <title>ავტორიზაცია</title>
+  <link rel="stylesheet" href="RegAuthStyle.css" />
+</head>
+<body>
+  <form class="LoginForm" id="LoginForm">
+    <h1 class="form_title">IliauniQuiz</h1>
+    <div class="form_group">
+      <input id="email" class="form_input" placeholder=" " />
+      <label class="email">ფოსტა</label>
+    </div>
+
+    <div class="form_group">
+      <input id="password" type="password" class="form_input" placeholder=" " />
+      <label class="password">პაროლი</label>
+    </div>
+    <button type="submit" class="form_submit">ავტორიზაცია</button>
+    <div class="divider">ან</div>
+    <button type="button" class="form_submit" onclick="window.location.href='Reg.html'">ახალი ანგარიშის შექმნა</button>
+  </form>
+  <script>
+    document.querySelector('.LoginForm .submit').addEventListener('click', function(event) {
+  event.preventDefault();
+
+  // Get form values
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value.trim();
+
+  // Simulated saved user credentials
+  const storedEmail = JSON.parse(localStorage.getItem('userEmail')).trim();
+  const storedPassword = JSON.parse(localStorage.getItem('userPassword')).trim();
+
+    console.log('Введенная эл. почта:', email);
+    console.log('Сохраненная эл. почта:', storedEmail);
+    console.log('Введенный пароль:', password);
+    console.log('Сохраненный пароль:', storedPassword);
+
+  // Check if entered email and password match the stored credentials
+  if (email === storedEmail && password === storedPassword) {
+    // If the credentials match, redirect to the next page
+    alert('თქვენ წარმატებით გაიარეთ ავტორიზაცია');
+    window.location.href = 'Quiz.html'; // Change 'nextPage.html' to the URL of your next page
+  } else {
+    // If the credentials do not match, show an error message
+    alert('არასწორია ფოსტა ან პაროლი, თავიდან ცადეთ!');
+  }
+});
+  </script>
+</body>
+</html>

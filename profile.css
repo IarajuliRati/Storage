@@ -1,0 +1,53 @@
+.body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.ProfileForm
+{
+    width: fit-content;
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px #ccc;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+    margin: auto;
+    margin-top: 150px;
+}
+
+.form_group
+{
+    position: relative;
+    margin-bottom: 32px;
+}
+.form_title
+{
+    text-align: center;
+    margin: 0 0 32px 0;
+    font-weight: normal;
+}
+.form_submit
+{
+    font-family: sans-serif;
+    letter-spacing: 1px;
+    font-size: 16px;
+    text-align: center;
+}
+.form_submit
+{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #0071f8;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3c;
+}
+.form_submit:focus,
+.form_submit:hover
+{
+    background-color: rgba(0, 113, 230, 0.7);
+}

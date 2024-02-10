@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>რეგისტრაციის ფორმა</title>
+    <link rel="stylesheet" href="RegAuthStyle.css" />
+  </head>
+  <body>
+    <form class="RegForm" id="RegForm">
+      <h1 class="form_title">IliauniQuiz</h1>
+      <div class="form_group">
+        <input
+          class="form_input"
+          type="text"
+          id="username"
+          required
+          placeholder=" "
+        />
+        <label class="username">სახელი</label>
+      </div>
+
+      <div class="form_group">
+        <input
+          class="form_input"
+          type="email"
+          id="email"
+          required
+          placeholder=" "
+        />
+        <label class="email">ფოსტა</label>
+      </div>
+
+      <div class="form_group">
+        <input
+          class="form_input"
+          type="password"
+          id="password"
+          required
+          placeholder=" "
+        />
+        <label class="password">პაროლი</label>
+      </div>
+      <button type="submit" class="form_submit">რეგისტრაცია</button>
+      <div class="divider">ან</div>
+      <button type="button" class="form_submit">ავტორიზაცია</button>
+    </form>
+    <script>
+      document
+        .getElementById("RegForm")
+        .addEventListener("submit", function (event) {
+          const username = document.getElementById("username").value;
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+
+          if (username === "" || email === "" || password === "") {
+            event.preventDefault();
+            alert("აუცილებლად შეავსეთ ყველა ველი");
+          }
+        });
+      document
+        .querySelector(".RegForm .form_submit")
+        .addEventListener("click", function (event) {
+          event.preventDefault();
+
+          const username = document.getElementById("username").value;
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+          const storedEmail = JSON.parse(
+            localStorage.getItem("userEmail")
+          ).trim();
+
+          if (email === storedEmail) {
+            alert("მომხმარებელი ასეთ ფოსტით უკვე დარეგისტრირებულია");
+          } else {
+            console.log("Username:", username);
+            console.log("Email:", email);
+            console.log("Password:", password);
+
+            localStorage.setItem("userName", JSON.stringify(username));
+            localStorage.setItem("userEmail", JSON.stringify(email));
+            localStorage.setItem("userPassword", JSON.stringify(password));
+
+            const isRegistered = true;
+
+            if (isRegistered) {
+              alert("რეგისტრაცია წარმატებით შესრულებულია!");
+              window.location.href = "Auth.html";
+            } else {
+              alert("რეგისტრაცია ვერ მოხერხდა. გთხოვთ, სცადოთ თავიდან.");
+            }
+          }
+        });
+    </script>
+  </body>
+</html>
+
+
+

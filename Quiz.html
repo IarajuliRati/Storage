@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iliauni Quiz</title>
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="QuizStyle.css" />
+  </head>
+  <body>
+    <div class="start-screen">
+      <button id="start-button">თამაშის დაწყება</button>
+      <divider> ან </divider>
+      <button id="ProfileForm1" onclick="window.location.href='profile.html'">პირადი კაბინეტი</button>
+    </div>
+    <div id="display-container">
+      <div class="header">
+        <div class="number-of-count">
+          <span class="number-of-question">1 of 3 questions</span>
+        </div>
+        <div class="timer-div">
+          <img src="timer-icon.svg" />
+          <span class="time-left">10s</span>
+        </div>
+      </div>
+      <div id="container">
+        <!-- ღილაკები -->
+      </div>
+      <button id="next-button">Next</button>
+    </div>
+    <div class="score-container hide">
+      <div id="user-score">Demo Score</div>
+      <button id="restart">Restart</button>
+      <button id="leaders" onclick="window.location.href='Leaders.html'; return false;">Top 20-ი მოთამაშე</button>
+      <button id="ProfileForm2" onclick="window.location.href='profile.html'">პირადი კაბინეტი</button>
+    </div>
+    <!-- Script -->
+    <script src="QuizScript.js"></script>
+  </body>
+</html>

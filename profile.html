@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>პირადი კაბინეტი</title>
+  <link rel="stylesheet" href="profile.css" />
+</head>
+<body>
+  <form class="ProfileForm" id="ProfileForm">
+    <h1 class="form_title">პირადი კაბინეტი</h1>
+    <div class="form_group">
+      <h2 class="username">სახელი: <label id="UsernameLabel"></label></h2>
+    </div>
+    <div class="form_group">
+      <h2 class="email">ფოსტა: <label id="EmailLabel"></label></h2>
+    </div>
+    <div class="form_group">
+      <h2 class="password">ფოსტა: <label id="PasswordLabel" type="password"></label></h2>
+    </div>
+    <button type="button" class="form_submit" onclick="window.location.href='Auth.html'">ანგარიშდან გასვლა</button>
+    <button type="button" class="form_submit" onclick="window.location.href='Quiz.html'">თამაშის გაგრძელება</button>
+  </form>
+  <script>
+    const storedUsername = JSON.parse(localStorage.getItem('userName')).trim();
+    const storedEmail = JSON.parse(localStorage.getItem('userEmail')).trim();
+    const storedPassword = JSON.parse(localStorage.getItem('userPassword')).trim();
+    const UsernameLabel = document.getElementById('UsernameLabel');
+    UsernameLabel.textContent = storedUsername;
+    const EmailLabel = document.getElementById('EmailLabel');
+    EmailLabel.textContent = storedEmail;    
+    const PasswordLabel = document.getElementById('PasswordLabel');
+    PasswordLabel.textContent = storedPassword;  
+  </script>
+</body>
